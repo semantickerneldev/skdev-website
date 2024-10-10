@@ -8,7 +8,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Future home of semantickernel.dev',
+  title: 'Future home of SemanticKernel.dev',
   tagline: 'Dinosaurs are cool, but so is GenAI',
   favicon: 'img/favicon.ico',
 
