@@ -74,9 +74,9 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: 'My Site',
+        title: 'SemanticKernel.dev',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'SemanticKernel.dev Logo',
           src: 'img/logo.svg',
         },
         items: [
@@ -111,15 +111,15 @@ const config = {
             items: [
               {
                 label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/semantickernel',
+                href: 'https://stackoverflow.com/questions/tagged/semantic-kernel',
               },
               // {
               //   label: 'Discord',
               //   href: 'https://discordapp.com/invite/docusaurus',
               // },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/codingoutloud',
+                label: 'X/Twitter',
+                href: 'https://twitter.com/codingoutloud', // @semkerdev
               },
             ],
           },
@@ -137,7 +137,14 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Bill Wilder. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} 
+        <a href="https://www.linkedin.com/in/billwilder/">Bill Wilder</a> and licensed under 
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1">CC BY-NC-ND 4.0 
+        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt="">
+        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt="">
+        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt="">
+        <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nd.svg?ref=chooser-v1" alt="">
+        </a>`,
       },
       prism: {
         theme: prismThemes.github,
