@@ -4,7 +4,7 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import { themes as prismThemes } from 'prism-react-renderer';
+import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -66,13 +66,7 @@ const config = {
         },
         theme: {
           customCss: './src/css/custom.css',
-        },
-        // Added Google Analytics configuration
-        gtag: {
-          trackingID: 'G-3T172HTEGR',
-          // Optional fields.
-          anonymizeIP: true, // Should IPs be anonymized?
-        },
+        },        
       }),
     ],
   ],
@@ -95,18 +89,6 @@ const config = {
             position: 'left',
             label: 'Tips',
           },
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
-          // {
-          //   href: 'https://github.com/semantickernel-dev/semantickernel.dev',
-          //   label: 'GitHub',
-          //   position: 'right',
-          // },
         ],
       },
       footer: {
@@ -119,10 +101,6 @@ const config = {
                 label: 'Tips',
                 to: '/docs/tips',
               },
-              // {
-              //   label: 'Tutorial',
-              //   to: '/docs/intro',
-              // },
             ],
           },
           {
@@ -132,10 +110,6 @@ const config = {
                 label: 'Stack Overflow',
                 href: 'https://stackoverflow.com/questions/tagged/semantic-kernel',
               },
-              // {
-              //   label: 'Discord',
-              //   href: 'https://discordapp.com/invite/docusaurus',
-              // },
               {
                 label: 'X/Twitter',
                 href: 'https://twitter.com/codingoutloud', // @semkerdev
@@ -145,10 +119,6 @@ const config = {
           {
             title: 'More',
             items: [
-              // {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
               {
                 label: 'GitHub',
                 href: 'https://github.com/semantickernel-dev/semantickernel.dev',
@@ -168,6 +138,12 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+      },
+      // Added Google Analytics configuration
+      gtag: {
+        trackingID: 'G-3T172HTEGR',
+        // Optional fields.
+        anonymizeIP: true, // Should IPs be anonymized?
       },
     }),
 };
