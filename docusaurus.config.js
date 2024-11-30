@@ -36,6 +36,13 @@ const config = {
 
   presets: [
     [
+      '@docusaurus/preset-classic',
+      {
+        googleAnalytics: {
+          trackingID: 'G-3T172HTEGR', // Replace with your actual ID
+          anonymizeIP: false, // Optional: Anonymize user IP addresses
+        },
+      },
       'classic',
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
@@ -58,7 +65,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/semantickernel-dev/semantickernel.dev/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/semantickerneldev/semantickernel.dev/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
