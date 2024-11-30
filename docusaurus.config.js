@@ -23,7 +23,7 @@ const config = {
   organizationName: 'SemanticKernelDev', // Usually your GitHub org/user name.
   projectName: 'skdev-website', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn', // 29-Nov-2024: changed from 'throw' to 'warn' at suggestion of Microsoft Copilot AI
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -40,7 +40,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: require.resolve('./sidebars.js'), // Bill added at suggestion of GPT o1-preview
           routeBasePath: '/', // Bill added at suggestion of Claude.ai
           // Ensure tips are included in the build
           include: ['**/*.{md,mdx}'], // Bill added at suggestion of Claude.ai
@@ -65,7 +65,7 @@ const config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),// Bill added at suggestion of GPT o1-preview
         },
         // Added Google Analytics configuration
         gtag: {
@@ -117,7 +117,7 @@ const config = {
             items: [
               {
                 label: 'Tips',
-                to: '/docs/tips',
+                to: '/tips',
               },
               // {
               //   label: 'Tutorial',
