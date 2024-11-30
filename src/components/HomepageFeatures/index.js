@@ -1,41 +1,51 @@
 import clsx from 'clsx';
 import Heading from '@theme/Heading';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Learn about Semantic Kernel',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Check out our <Link to="/tips">tips for Semantic Kernel developers</Link>!
+        <br />
+        <Link to="/tips"><b>https://semantickernel.dev/tips</b></Link>
       </>
     ),
   },
   {
-    title: 'Focus on Front Matters',
+    title: 'Adding one tip per day during month of December',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Come back every day in December 2024 to check out our new tip-of-the-day. Sometimes this
+        is referred to as an Advent Calendar.
+        <br />
+        <Link to="/tips"><b>https://semantickernel.dev/tips</b></Link>
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Feedback is welcome',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Please feel free to reach out
+        to
+        <br />
+        <i>bill</i> <em>at</em> <i>semantickernel.dev</i>
+        <br />
+        with any feedback or suggestions.
+        <br />
+        <Link to="/tips"><b>https://semantickernel.dev/tips</b></Link>
       </>
     ),
   },
 ];
 
-function Feature({Svg, title, description}) {
+function Feature({ Svg, title, description }) {
   return (
     <div className={clsx('col col--4')}>
       <div className="text--center">

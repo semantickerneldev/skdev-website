@@ -1,0 +1,75 @@
+---
+id: index
+title: Tips Directory
+slug: /tips
+sidebar_position: 1
+---
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { useCurrentSidebarCategory } from '@docusaurus/theme-common';
+
+# Tips Directory
+
+{(() => {
+  const sidebarItems = useCurrentSidebarCategory().items
+    .filter(item => item.docId && item.docId !== 'tips/index');
+
+  console.log('Sidebar items:', sidebarItems);
+  
+  const tips = sidebarItems
+    .map(item => {
+      const number = item.docId.match(/tip(\d+)/)?.[1];
+      return {
+        number: number ? parseInt(number) : 9999,
+        id: item.docId,
+        path: item.href,
+        title: item.label,     // This should give us "Tippy Numero One" etc.
+      };
+    })
+    .sort((a, b) => a.number - b.number);
+
+  return (
+    <div className="tips-list">
+      {tips.map(tip => (
+        <div key={tip.id} className="tip-item">
+          <a href={tip.path} className="tip-link">
+            <div className="tip-header">
+              Tip {tip.number} - {tip.title}
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  );
+})()}
+
+<style>
+{`
+  .tips-list {
+    margin: 2rem 0;
+  }
+
+  .tip-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 8px;
+  }
+
+  .tip-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .tip-header {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ifm-link-color);
+  }
+
+  .tip-item:hover {
+    background: var(--ifm-color-emphasis-100);
+  }
+`}
+</style>

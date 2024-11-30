@@ -1,0 +1,130 @@
+---
+id: index
+title: Tips Directory
+slug: /tips
+sidebar_position: 1
+---
+
+import { useCurrentSidebarCategory } from '@docusaurus/theme-common';
+
+# Tips Directory
+
+{(() => {
+  const items = useCurrentSidebarCategory().items
+    .filter(item => item.docId && item.docId !== 'tips/index')
+    .map(item => {
+      console.log('Processing item:', item);
+      
+      const number = item.docId.match(/tip(\d+)/)?.[1];
+      let frontMatter;
+      try {
+        // Try loading as .md first
+        frontMatter = require(`@site/docs/${item.docId}.md`).frontMatter;
+      } catch (e) {
+        try {
+          // If .md fails, try .mdx
+          frontMatter = require(`@site/docs/${item.docId}.mdx`).frontMatter;
+        } catch (e2) {
+          console.warn(`Could not load frontmatter for ${item.docId}`);
+          frontMatter = {};
+        }
+      }
+      
+      return {
+        number: parseInt(number),
+        title: item.label,
+        path: item.href,
+        frontMatter
+      };
+    })
+    .sort((a, b) => a.number - b.number);
+
+  return (
+    <div className="tips-list">
+      {items.map(item => (
+        <div key={item.path} className="tip-item">
+          <a href={item.path} className="tip-link">
+            <div className="tip-content">
+              <div className="tip-header">
+                Tip {item.number} - {item.title}
+              </div>
+              {item.frontMatter?.description && (
+                <div className="tip-description">
+                  {item.frontMatter.description}
+                </div>
+              )}
+              {item.frontMatter?.categories && item.frontMatter.categories.length > 0 && (
+                <div className="tip-categories">
+                  {item.frontMatter.categories.map(cat => (
+                    <span key={cat} className="tip-category">
+                      {cat}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </a>
+        </div>
+      ))}
+    </div>
+  );
+})()}
+
+<style>
+{`
+  .tips-list {
+    margin: 2rem 0;
+  }
+
+  .tip-item {
+    margin: 1rem 0;
+    padding: 1rem;
+    border: 1px solid var(--ifm-color-emphasis-200);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+  }
+
+  .tip-item:hover {
+    background: var(--ifm-color-emphasis-100);
+    transform: translateY(-1px);
+  }
+
+  .tip-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .tip-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tip-header {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--ifm-link-color);
+  }
+
+  .tip-description {
+    font-size: 0.9rem;
+    color: var(--ifm-color-emphasis-700);
+  }
+
+  .tip-categories {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .tip-category {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    background: var(--ifm-color-primary-lightest);
+    color: var(--ifm-color-primary-darker);
+    border-radius: 1rem;
+    font-weight: 500;
+  }
+`}
+</style>

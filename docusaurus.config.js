@@ -9,7 +9,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Future home of SemanticKernel.dev',
-  tagline: 'Dinosaurs are cool, but so is GenAI',
+  tagline: 'Launching Dec 1, 2024',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -20,8 +20,8 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'semantickernel-dev', // Usually your GitHub org/user name.
-  projectName: 'semantickernel.dev', // Usually your repo name.
+  organizationName: 'SemanticKernelDev', // Usually your GitHub org/user name.
+  projectName: 'skdev-website', // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -41,6 +41,9 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          routeBasePath: '/', // Bill added at suggestion of Claude.ai
+          // Ensure tips are included in the build
+          include: ['**/*.{md,mdx}'], // Bill added at suggestion of Claude.ai
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -81,17 +84,23 @@ const config = {
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
+            type: 'doc',
+            docId: 'tips/index',
             position: 'left',
-            label: 'Tutorial',
+            label: 'Tips',
           },
-          {to: '/blog', label: 'Blog', position: 'left'},
-          {
-            href: 'https://github.com/semantickernel-dev/semantickernel.dev',
-            label: 'GitHub',
-            position: 'right',
-          },
+          // {
+          //   type: 'docSidebar',
+          //   sidebarId: 'tutorialSidebar',
+          //   position: 'left',
+          //   label: 'Tutorial',
+          // },
+          // {to: '/blog', label: 'Blog', position: 'left'},
+          // {
+          //   href: 'https://github.com/semantickernel-dev/semantickernel.dev',
+          //   label: 'GitHub',
+          //   position: 'right',
+          // },
         ],
       },
       footer: {
@@ -101,9 +110,13 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
+                label: 'Tips',
+                to: '/docs/tips',
               },
+              // {
+              //   label: 'Tutorial',
+              //   to: '/docs/intro',
+              // },
             ],
           },
           {
@@ -126,10 +139,10 @@ const config = {
           {
             title: 'More',
             items: [
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
+              // {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
               {
                 label: 'GitHub',
                 href: 'https://github.com/semantickernel-dev/semantickernel.dev',

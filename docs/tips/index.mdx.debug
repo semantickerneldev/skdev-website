@@ -1,0 +1,24 @@
+---
+id: index
+title: Tips Directory
+slug: /tips
+sidebar_position: 1
+---
+
+import { useAllDocsData } from '@docusaurus/plugin-content-docs/client';
+
+# Tips Directory
+
+{(() => {
+  const allDocs = useAllDocsData();
+  // Log the data to console for debugging
+  console.log('AllDocs:', allDocs);
+  
+  return (
+    <div>
+      <pre>
+        {JSON.stringify(allDocs, null, 2)}
+      </pre>
+    </div>
+  );
+})()}
