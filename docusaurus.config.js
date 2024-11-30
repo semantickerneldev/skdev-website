@@ -69,7 +69,7 @@ const config = {
         },
         // Added Google Analytics configuration
         gtag: {
-          trackingID: 'G-3T172HTEGR',
+          trackingID: 'G-9FT0NNZ348',
           // Optional fields.
           anonymizeIP: true, // Should IPs be anonymized?
         },
