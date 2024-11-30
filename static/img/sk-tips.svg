@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Brain outline -->
+  <path d="M400 100 C500 100, 600 200, 600 300 C600 400, 500 500, 400 500 C300 500, 200 400, 200 300 C200 200, 300 100, 400 100" 
+        fill="none" 
+        stroke="#2d3748" 
+        stroke-width="3"/>
+  
+  <!-- Neural connections -->
+  <g stroke="#4a5568" stroke-width="2">
+      <path d="M400 200 L500 250" stroke-dasharray="5,5"/>
+      <path d="M400 300 L500 350" stroke-dasharray="5,5"/>
+      <path d="M400 400 L500 450" stroke-dasharray="5,5"/>
+      <path d="M400 200 L300 250" stroke-dasharray="5,5"/>
+      <path d="M400 300 L300 350" stroke-dasharray="5,5"/>
+      <path d="M400 400 L300 450" stroke-dasharray="5,5"/>
+  </g>
+
+  <!-- Semantic nodes -->
+  <g>
+      <!-- Left side nodes -->
+      <circle cx="300" cy="250" r="40" fill="#63b3ed"/>
+      <text x="300" y="250" text-anchor="middle" fill="white" font-size="12">Functions</text>
+      
+      <circle cx="300" cy="350" r="40" fill="#48bb78"/>
+      <text x="300" y="350" text-anchor="middle" fill="white" font-size="12">Memory</text>
+      
+      <circle cx="300" cy="450" r="40" fill="#f6ad55"/>
+      <text x="300" y="450" text-anchor="middle" fill="white" font-size="12">Plugins</text>
+
+      <!-- Right side nodes -->
+      <circle cx="500" cy="250" r="40" fill="#fc8181"/>
+      <text x="500" y="250" text-anchor="middle" fill="white" font-size="12">Planner</text>
+      
+      <circle cx="500" cy="350" r="40" fill="#b794f4"/>
+      <text x="500" y="350" text-anchor="middle" fill="white" font-size="12">Context</text>
+      
+      <circle cx="500" cy="450" r="40" fill="#4fd1c5"/>
+      <text x="500" y="450" text-anchor="middle" fill="white" font-size="12">Prompts</text>
+  </g>
+
+  <!-- Code symbols -->
+  <g fill="none" stroke="#2d3748" stroke-width="2">
+      <path d="M250 150 L270 150 L260 170 L250 150"/> <!-- < symbol -->
+      <path d="M530 150 L550 150 L540 170 L530 150"/> <!-- < symbol -->
+      <rect x="350" y="150" width="20" height="20"/> <!-- square -->
+      <circle cx="400" cy="160" r="10"/> <!-- circle -->
+  </g>
+
+  <!-- Title - Made bigger and more prominent -->
+  <text x="400" y="80" text-anchor="middle" font-size="36" font-weight="bold" fill="#2d3748" stroke="#2d3748" stroke-width="1">
+      Semantic Kernel Tips
+  </text>
+  <!-- Added subtle shadow for title -->
+  <text x="402" y="82" text-anchor="middle" font-size="36" font-weight="bold" fill="#e2e8f0" opacity="0.5">
+      Semantic Kernel Tips
+  </text>
+</svg>

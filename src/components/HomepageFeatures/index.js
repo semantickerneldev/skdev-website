@@ -5,8 +5,8 @@ import Link from '@docusaurus/Link';
 
 const FeatureList = [
   {
-    title: 'Learn about Semantic Kernel',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Semantic Kernel Tips',
+    Svg: require('@site/static/img/sk-tips.svg').default,
     description: (
       <>
         Check out our <Link to="/tips">tips for Semantic Kernel developers</Link>!
@@ -17,7 +17,7 @@ const FeatureList = [
   },
   {
     title: 'Adding one tip per day during month of December',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    Svg: require('@site/static/img/logo-rectangular.svg').default,
     description: (
       <>
         Come back every day in December 2024 to check out our new tip-of-the-day. Sometimes this
@@ -29,7 +29,7 @@ const FeatureList = [
   },
   {
     title: 'Feedback is welcome',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    Svg: require('@site/static/img/sk-feedback.svg').default,
     description: (
       <>
         Please feel free to reach out
@@ -38,6 +38,8 @@ const FeatureList = [
         <i>bill</i> <em>at</em> <i>semantickernel.dev</i>
         <br />
         with any feedback or suggestions.
+        <br />
+        Or just check out our tips at...
         <br />
         <Link to="/tips"><b>https://semantickernel.dev/tips</b></Link>
       </>

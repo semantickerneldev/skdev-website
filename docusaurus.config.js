@@ -8,8 +8,8 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Future home of SemanticKernel.dev',
-  tagline: 'Launching Dec 1, 2024',
+  title: 'SemanticKernel.dev - Launching Dec 1, 2024',
+  tagline: 'For developers shaping our AI-powered future.',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
