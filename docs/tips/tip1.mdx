@@ -1,8 +1,8 @@
 ---
-title: Manage Prompt Templates as Independent Object
+title: Manage Prompt Templates as First-class Objects
 tip_number: 1
-description: Prompt Templates are integral to GenAI systems, but also change frequently. Managing them accordingly as a separate concern for increased visibilty and control will likely serve you better than hard-coding them in source code.
-//categories: ['basics', 'performance', 'security']
+description: Prompt Templates are integral to GenAI systems, but also change frequently, and may be modified by people in roles other than software engineer. Managing them accordingly as a separate concern for increased visibilty and control will likely serve you better than hard-coding them in source code.
+//categories: ['prompts']
 ---
 
 OpenAI launched ChatGPT to the public on November 30, 2022.
@@ -11,40 +11,73 @@ monthly active users by January 2023.
 
 After innumerable failed attempts at creating a functional "AI chatbot"
 starting with [ELIZA](https://en.wikipedia.org/wiki/ELIZA) in the 1960s,
-the idea of an "AI chatbot" seemingly became real over night. You could have
+the idea of an AI chatbot seemingly became real over night. You could have
 a text-based conversation with ChatGPT and it really worked. It
-worked so much better than all prior attempts that is was instantly clear this technology was different and promised new possibilities that were heretofore impractical or impossible. Everything had changed overnight.
+worked so much better than all prior attempts that is was instantly clear
+this technology was different and promised new possibilities that were
+heretofore impractical or impossible. Everything had changed overnight.
 
-While supported by a half century of advances across Machine Learning (ML), Neural Networks, and other AI and AI-adjacent fields (such as [hardware acceleration](https://insidehpc.com/2024/04/microsoft-and-nvidia-together-advance-ai/)), it all [came together in a big way](https://arxiv.org/abs/2206.07682).
+Well, not exactly overnight. Behind the scenes ChatGPT was backed by decades
+of advancements and [breakthroughs](https://arxiv.org/abs/1706.03762) across 
+Machine Learning (ML), Neural Networks, and other AI and AI-adjacent fields 
+(such as [hardware acceleration](https://arxiv.org/abs/1909.08053)), 
+it all [came together in a big way](https://arxiv.org/abs/2206.07682).
 
 But to use all this incredible technology mostly you just need prompts.
 
-We can (and should) discuss AI and ML algorithms, RAG patterns, vector searches, AI safety, and [big](https://commoncrawl.org/) [data](https://foundation.mozilla.org/en/research/library/generative-ai-training-data/common-crawl/). However, the key factor in effectively utilizing GenAI systems is the prompt itself. The humble prompt.
+We can (and should) discuss AI and ML algorithms, RAG patterns, vector searches, 
+AI safety, and [big](https://commoncrawl.org/) 
+[data](https://foundation.mozilla.org/en/research/library/generative-ai-training-data/common-crawl/). 
+However, the key factor in effectively utilizing GenAI systems is the prompt itself.
+The humble prompt.
 
 That's the point. _The prompt is the central actor._
 
-Sure, we also need UX experts and software engineers and others to pull everything together so it all works together. But most
-applications will be assembled from prompts combined with other ingredients. And you will iterate on the prompts. A lot.
+Sure, we also need UX experts and software engineers and other skills to pull everything
+together so it all coherently. But most applications will be assembled from prompts combined
+with other ingredients. And you will iterate on the prompts. A lot.
 
-A prompt gets sent to an LLM, but we actually generate a prompt from what we call a _prompt template_. Often a prompt template just has some variables we fill in, but it can get more complex than that too.
+A prompt gets sent to an LLM, but when building AI services such as with Semantic Kernel we typically 
+generate a prompt from what we call a _prompt template_.
+Often a prompt template is text that looks like most of the prompt, but also has some variables we fill in,
+(it can get more complex than that too, but let's stay focused here).
 
 An example excerpt of a prompt template might be:
 
 ```json
-... the 5 players on {{sports-team}} in the 1990 season...
+... the 5 players on {{sports-team}} in the year 1990 ...
 ```
 
-The above excerpt shows a variable `{{sports-team}}` that will be replaced with some value that's provided at runtime. This substitution is what turns a prompt template into a prompt. You can then imagine the above prompt template might be further evolved to make a variable for the year where 1990 is currently hard-coded. Normal evolution.
+The above excerpt shows a variable `{{sports-team}}` that will be replaced with some value to be
+provided at runtime. This substitution is what turns a prompt template into a prompt. You can
+probably easily imagine the above prompt template might be further evolved to make a variable for the year
+where 1990 is currently hard-coded and also rephrase from calendar year to sports season terminology.
+This is normal prompt engineering.
 
-If prompt templates are central, and they may change for lots of reasons as your AI system evolves, you probably don't want to hard-code them in your source code. Rather, take the small step to externalize them.
+If prompt templates are central, and they may change for lots of reasons as your AI system evolves,
+you probably don't want to hard-code them in your source code. Rather, take the small step to externalize them.
+Treat them as a first class object in their own right.
 
-We'll get into more approaches in future tips, but for now let's mention that you can manage your prompts as YAML files on the file system, according to a well-defined [prompt template syntax](https://learn.microsoft.com/en-us/semantic-kernel/concepts/prompts/prompt-template-syntax).
+Rather than have teammates change code just to change a prompt, updating a YAML file is a more suitable
+approach for many scenarios. This prompt-per-YAML-file approach helps to track each prompt with its own
+change history (such as if you are using `git` for change tracking), and all the prompts are more easily
+found.
 
-Rather than have teammates change code just to change a prompt, updating a YAML file is a more suitable approach for many scenarios. This prompt-per-YAML-file approach helps to track each prompt with its own change history (such as if you are using `git` for change tracking), and all the prompts are more easily found. And probably you could add/remove entire prompts without needing to update the code at all.
+This approach also simplifies modifying prompts by teammates who are not software engineers because they won't
+need to go into C#, Python, or Java source code to find and edit the prompts. 
 
-And finally, here's some sample Semantic Kernel code to load a prompt template from a file:
+And depending on how you want your system to work, you can arrange to add/remove entire prompt template files
+without needing to update any code at all.
+
+We'll get into more approaches in future tips, but for now let's mention that you can manage your prompts
+as YAML files on the file system, according to a well-defined [prompt template syntax]
+(https://learn.microsoft.com/en-us/semantic-kernel/concepts/prompts/prompt-template-syntax).
+
+And finally, here's a snippet of Semantic Kernel code that loads a prompt template from a file:
 
 ```CSharp
-string promptTemplateYaml = File.ReadAllText("./foo/promptx.yaml");
+string promptTemplateYaml = File.ReadAllText("./prompts/best_players.yaml");
 KernelFunction function = kernel.CreateFunctionFromPromptYaml(promptTemplateYaml);
 ```
+
+It is a small but powerful step forward to better modeling your AI system. Treat your prompts right!
