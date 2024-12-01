@@ -1,22 +1,50 @@
 ---
-title: Tip 1 will go here
+title: Manage Prompt Templates as Independent Object
 tip_number: 1
-description: Placeholder description for first tip!
-categories: ['basics', 'performance', 'security']
+description: Prompt Templates are integral to GenAI systems, but also change frequently. Managing them accordingly as a separate concern for increased visibilty and control will likely serve you better than hard-coding them in source code.
+//categories: ['basics', 'performance', 'security']
 ---
 
-:::tip
-This is not the real tip - yet!
-:::
+OpenAI launched ChatGPT to the public on November 30, 2022.
+It had a million users after just 5 days and 100 million
+monthly active users by January 2023.
 
-{/* this apparently is a real comment */}
+After innumerable failed attempts at creating a functional "AI chatbot"
+starting with [ELIZA](https://en.wikipedia.org/wiki/ELIZA) in the 1960s,
+the idea of an "AI chatbot" seemingly became real over night. You could have
+a text-based conversation with ChatGPT and it really worked. It
+worked so much better than all prior attempts that is was instantly clear this technology was different and promised new possibilities that were heretofore impractical or impossible. Everything had changed overnight.
 
-Some markdown follows:
+While supported by a half century of advances across Machine Learning (ML), Neural Networks, and other AI and AI-adjacent fields (such as special hardware), it all [came together in a big way](https://arxiv.org/abs/2206.07682).
 
-```js
-<button onClick={() => alert('button clicked!')}>Click me!</button>
+But to use all this incredible technology mostly you just need prompts.
+
+We can (and should) discuss AI and ML algorithms, RAG patterns, vector searches, AI safety, and more - and let's not forget [big](https://commoncrawl.org/) [data](https://foundation.mozilla.org/en/research/library/generative-ai-training-data/common-crawl/) and [acclerated hardware](https://insidehpc.com/2024/04/microsoft-and-nvidia-together-advance-ai/). However, the key factor in effectively utilizing GenAI systems is the prompt itself. The humble prompt.
+
+That's the point. _The prompt is the central actor._
+
+Sure, we also need UX experts and software engineers and others to pull everything together so it all works together. But most
+applications will be assembled from prompts combined with other ingredients. And you will iterate on the prompts. A lot.
+
+A prompt gets sent to an LLM, but we actually generate a prompt from what we call a _prompt template_. Often a prompt template just has some variables we fill in, but it can get more complex than that too.
+
+An example excerpt of a prompt template might be:
+
+```json
+... the 5 players on {{sports-team}} in the 1990 season...
 ```
 
-Some actual JavaScript follows:
+The above excerpt shows a variable `{{sports-team}}` that will be replaced with some value that's provided at runtime. This substitution is what turns a prompt template into a prompt. You can then imagine the above prompt template might be further evolved to make a variable for the year where 1990 is currently hard-coded. Normal evolution.
 
-<button onClick={() => alert('JavaScript is allowed in .mdx files!')}>hey, you - click this!</button>
+If prompt templates are central, and they may change for lots of reasons as your AI system evolves, you probably don't want to hard-code them in your source code. Rather, take the small step to externalize them.
+
+We'll get into more approaches in future tips, but for now let's mention that you can manage your prompts as YAML files on the file system, according to a well-defined [prompt template syntax](https://learn.microsoft.com/en-us/semantic-kernel/concepts/prompts/prompt-template-syntax).
+
+Rather than have teammates change code just to change a prompt, updating a YAML file is a more suitable approach for many scenarios. This prompt-per-YAML-file approach helps to track each prompt with its own change history (such as if you are using `git` for change tracking), and all the prompts are more easily found. And probably you could add/remove entire prompts without needing to update the code at all.
+
+And finally, here's some sample Semantic Kernel code to load a prompt template from a file:
+
+```CSharp
+string promptTemplateYaml = File.ReadAllText("./foo/promptx.yaml");
+KernelFunction function = kernel.CreateFunctionFromPromptYaml(promptTemplateYaml);
+```

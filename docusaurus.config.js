@@ -8,7 +8,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'SemanticKernel.dev - Launching Dec 1, 2024',
+  title: 'SemanticKernel.dev - Freshly launched on Dec 1, 2024',
   tagline: 'For developers shaping our AI-powered future.',
   favicon: 'img/favicon.ico',
 
@@ -46,8 +46,8 @@ const config = {
           include: ['**/*.{md,mdx}'], // Bill added at suggestion of Claude.ai
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/semantickernel-dev/semantickernel.dev/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/semantickernel-dev/skdev-website/tree/main/packages/create-docusaurus/templates/shared/',
         },
         blog: {
           showReadingTime: true,
@@ -57,8 +57,8 @@ const config = {
           },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/semantickerneldev/semantickernel.dev/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+            // 'https://github.com/semantickerneldev/skdev-website/tree/main/packages/create-docusaurus/templates/shared/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
