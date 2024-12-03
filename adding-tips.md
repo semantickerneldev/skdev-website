@@ -3,7 +3,8 @@
 ## File Structure
 
 Create tip files in the `docs/tips` directory:
-```
+
+```plaintext
 docs/
 └── tips/
     ├── tip1.md
@@ -107,7 +108,6 @@ Content...
 ```python
 print("Your code here")
 ```
-```
 
 ### 2. Writing Style
 
@@ -145,6 +145,7 @@ print("Your code here")
 ### 1. Tip Not Showing
 
 Check:
+
 - File is in correct directory
 - Filename matches `tipX.md` format
 - Front matter has correct YAML syntax
@@ -153,6 +154,7 @@ Check:
 ### 2. Categories Not Showing
 
 Check:
+
 - Categories are in array format: `['category1']`
 - Category names are from approved list
 - Category names are properly quoted
@@ -161,6 +163,7 @@ Check:
 ### 3. Formatting Issues
 
 Check:
+
 - Front matter has three dashes (`---`) on both sides
 - No extra spaces in front matter
 - Strings containing special characters are quoted
