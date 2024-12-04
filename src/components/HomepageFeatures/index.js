@@ -16,12 +16,11 @@ const FeatureList = [
     ),
   },
   {
-    title: 'Adding one tip per day during month of December',
+    title: 'Will start adding tips in Jan 2025!',
     Svg: require('@site/static/img/logo-rectangular.svg').default,
     description: (
       <>
-        Come back every day in December 2024 to check out our new tip-of-the-day. Sometimes this
-        is referred to as an Advent Calendar.
+        Come back in Dec 2025 to check out the content. 
         <br />
         <Link to="/tips"><b>https://semantickernel.dev/tips</b></Link>
       </>

@@ -8,7 +8,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'stay tuned:<br />SemanticKernel.dev to launch 01-Jan-2025',
+  title: 'stay tuned: SemanticKernel.dev to launch 01-Jan-2025',
   tagline: 'For developers shaping our AI-powered future.',
   favicon: 'img/favicon.ico',
 
